@@ -1,5 +1,11 @@
 export const state = {
-  counter: 0
+  todos: [
+  { task: 'eat' },
+  { task: 'walk the dog' },
+  { task: 'get hired as senior dev' },
+  { task: 'code' },
+  { task: 'sleep' }
+  ]
 };
 
 export const mutations = {

@@ -1,26 +1,31 @@
 <template>
-  <div>
-   {{ counter }}
-   <button @click="increment">+</button>
-   <button @click="decrement">-</button>
+  <div class="pa4">
+    <article class="pa3 pa5-ns">
+    <h1 class="f4 bold center mw6">Cats</h1>
+    <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+    <li class="ph3 pv3 bb b--light-silver">Mackeral Tabby</li>
+    <li class="ph3 pv3 bb b--light-silver">Burmese</li>
+    <li class="ph3 pv3 bb b--light-silver">Orange Tabby</li>
+    <li class="ph3 pv3 bb b--light-silver">Maine Coon</li>
+    <li class="ph3 pv3 bb b--light-silver">Siamese</li>
+    <li class="ph3 pv3 bb b--light-silver">Scottish Fold</li>
+    <li class="ph3 pv3">American Bobtail</li>
+  </ul>
+</article>
 
   </div>
 </template>
 
 <script>
-  import { mapState, mapMutations } from 'vuex';
+  import { mapState } from 'vuex';
 
   export default {
     computed: {
       ...mapState({
-        counter: state => state.counter
+        todos: state => state.todos
       })
     },
     methods: {
-      ...mapMutations([
-        'increment',
-        'decrement'
-      ])
     }
   };
 </script>
