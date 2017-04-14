@@ -4,13 +4,12 @@
       <input v-model="task " type="text" name="task ">
       <button>Submit</button>
     </form>
-
     <article class="pa3 pa5-ns">
-    <h1 class="f4 bold center mw6">Michael Friedman's Todo List <small>made with Vue / Nuxt</small></h1>
-  <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
-    <li v-for="todo of todos" class="ph3 pv3 bb b--light-silver">{{ todo.task}}</li>
-  </ul>
-</article>
+      <h1 class="f4 bold center mw6">Michael Friedman's Todo List <small>made with Vue / Nuxt</small></h1>
+      <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+        <li v-for="todo of todos" class="ph3 pv3 bb b--light-silver">{{ todo.task}}</li>
+      </ul>
+    </article>
   </div>
 </template>
 

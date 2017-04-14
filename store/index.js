@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const state = {
   todos: [
   ]
@@ -13,7 +15,8 @@ export const mutations = {
 };
 
 export const actions = {
-  add ({ commit }, task) {
-    commit('add', { task, complete: false });
+  async add ({ commit }, task) {
+    const res = await axios.post('https://todos-fpqdaxkgqt.now.sh/todos', { task, complete: false });
+    commit('add');
   }
 };
