@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="add(task)">
-      <input v-model="task " type="text" name="">
+      <input v-model="task " type="text" name="task ">
       <button>Submit</button>
     </form>
 
@@ -22,13 +22,12 @@
 
     async fetch ({ store, redirect }) {
       try {
-        const res = await axios.get('https://todos-cuvsmolowg.now.sh/todos');
+        const res = await axios.get('https://todos-fpqdaxkgqt.now.sh/todos');
         store.commit('init', res.data);
       } catch (error) {
-        error({ statusCode: 500, message: 'Sorry, internal server error.' });
+        redirect('/error');
       }
     },
-
     data () {
       return {
         task: 'some task'

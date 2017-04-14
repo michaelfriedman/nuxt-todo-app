@@ -7,13 +7,13 @@ export const mutations = {
   init (state, todos) {
     state.todos = todos;
   },
-  add(state, todo) {
+  add (state, todo) {
     state.todos = [...state.todos, todo];
   }
 };
 
 export const actions = {
   add ({ commit }, task) {
-    commit('add', { task, complete: false })
+    commit('add', { task, complete: false });
   }
 };
