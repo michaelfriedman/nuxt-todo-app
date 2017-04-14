@@ -1,5 +1,10 @@
 <template>
   <div>
+    <form @submit.prevent="add(task)">
+      <input v-model="task " type="text" name="">
+      <button>Submit</button>
+    </form>
+
     <article class="pa3 pa5-ns">
     <h1 class="f4 bold center mw6">Michael Friedman's Todo List <small>made with Vue / Nuxt</small></h1>
   <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
@@ -10,10 +15,11 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex';
+  import { mapState, mapActions } from 'vuex';
   import axios from 'axios';
 
   export default {
+
     async fetch ({ store, redirect }) {
       try {
         const res = await axios.get('https://todos-cuvsmolowg.now.sh/todos');
@@ -22,12 +28,21 @@
         error({ statusCode: 500, message: 'Sorry, internal server error.' });
       }
     },
+
+    data () {
+      return {
+        task: 'some task'
+      };
+    },
     computed: {
       ...mapState({
         todos: state => state.todos
       })
     },
     methods: {
+      ...mapActions([
+        'add'
+      ])
     }
   };
 </script>
