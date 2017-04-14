@@ -14,9 +14,13 @@
   import axios from 'axios';
 
   export default {
-    async fetch ({ store }) {
-      const res = await axios.get('https://todos-cuvsmolowg.now.sh/todos');
-      store.commit('init', res.data);
+    async fetch ({ store, redirect }) {
+      try {
+        const res = await axios.get('https://todos-cuvsmolowg.now.sh/todos');
+        store.commit('init', res.data);
+      } catch (error) {
+        error({ statusCode: 500, message: 'Sorry, internal server error.' });
+      }
     },
     computed: {
       ...mapState({
